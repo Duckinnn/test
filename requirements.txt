@@ -1,5 +1,4 @@
-transformers
-io
-PIL
-streamlit
-pandas
+transformers==4.25.1
+pillow==9.3.0
+streamlit==1.15.2
+pandas==1.5.2
