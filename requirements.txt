@@ -2,5 +2,5 @@ transformers==4.25.1
 pillow==9.3.0
 streamlit==1.15.2
 pandas==1.5.2
-tenserflow==2.11.0
+tenserflow==2.0
 pytorch==1.0.2
