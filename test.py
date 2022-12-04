@@ -32,7 +32,7 @@ diagnosis = st.sidebar.button("Diagnose")
 #     st.experimental_rerun()
 # print(uploaded_file, diagnosis, type(diagnosis),  network)
 if uploaded_file != [] and diagnosis and magnitude != "--Select--":
-    model_name_or_path = 'test/Model/VIT' + magnitude
+    model_name_or_path = './Model/VIT' + magnitude
     feature_extractor = ViTFeatureExtractor.from_pretrained(model_name_or_path)
     model = ViTForImageClassification.from_pretrained(model_name_or_path)
 
