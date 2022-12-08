@@ -1,4 +1,4 @@
-from transformers import ViTFeatureExtractor, ViTForImageClassification
+from transformers import ViTFeatureExtractor, ViTForImageClassification, AutoModel
 from io import BytesIO
 from PIL import Image
 import streamlit as st
@@ -18,7 +18,7 @@ models_list = ["--Select--", "40X", "100X", "200X", "400X"]
 magnitude = st.sidebar.selectbox("Select the Magnification", models_list)
 
 uploaded_file = st.sidebar.file_uploader(
-    "Choose an image to diagnose", type=["jpg", "jpeg", "png"], accept_multiple_files = True, key='key'
+    "Choose images to diagnose", type=["jpg", "jpeg", "png"], accept_multiple_files = True, key='key'
 )
 
 diagnosis = st.sidebar.button("Diagnose")
@@ -32,9 +32,9 @@ diagnosis = st.sidebar.button("Diagnose")
 #     st.experimental_rerun()
 # print(uploaded_file, diagnosis, type(diagnosis),  network)
 if uploaded_file != [] and diagnosis and magnitude != "--Select--":
-    model_name_or_path = './Model/VIT' + magnitude
+    model_name_or_path = "Duckin/dd"
     feature_extractor = ViTFeatureExtractor.from_pretrained(model_name_or_path)
-    model = ViTForImageClassification.from_pretrained(model_name_or_path)
+    model = AutoModel.from_pretrained(model_name_or_path)
 
     predictions = []
 
@@ -70,3 +70,5 @@ if uploaded_file != [] and diagnosis and magnitude != "--Select--":
     # st.write(index)
     # st.image(predictions[index][0])
     #print(uploaded_file, diagnosis, network)
+
+# "st.session_state object: ", st.session_state
